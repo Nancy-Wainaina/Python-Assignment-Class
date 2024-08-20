@@ -1,10 +1,6 @@
+
 from django.urls import path
-from .views import timetable_view
-
-
-
-from api.views import Class_PeriodListViews, ClassroomListViews, CourseListViews, StudentListViews, TeacherListViews,StudentDetailView, TeacherDetailView, CourseDetailView, ClassroomDetailView, Class_PeriodDetailView
-
+from api.views import Class_PeriodListViews, ClassroomListViews, CourseListViews, StudentListViews, TeacherListViews,StudentDetailView, TeacherDetailView, CourseDetailView, ClassroomDetailView, Class_PeriodDetailView , WeeklyTimetable
 
 urlpatterns = [
     path("Students/",StudentListViews.as_view(),name = "student_list_view"),
@@ -17,5 +13,5 @@ urlpatterns = [
     path("Courses/<int:id>/",CourseDetailView.as_view(), name = "course_detail_view"),
     path("Classrooms/<int:id>/",ClassroomDetailView.as_view(), name = "classroom_detail_view"),
     path("Class_Periods/<int:id>/",Class_PeriodDetailView.as_view(), name = "class_period_detail_view"),
-    path('timetable/', timetable_view, name='timetable'),
+    path('Weekly-timetable/', WeeklyTimetable.as_view(), name='weekly_timetable'),
 ]
